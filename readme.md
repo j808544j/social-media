@@ -17,7 +17,7 @@ The request body should contain the following fields:
 
 #### Example Request Body
 
-````json
+```json
 {
   "email": "newuser@example.com",
   "password": "securepassword"
@@ -28,7 +28,6 @@ The request body should contain the following fields:
 
 - **Status Code:** 200 (OK) - Successful request.
 - **Status Code:** 400 (Bad Request) - If the provided data is invalid.
-
 
 # Get All Posts
 
@@ -429,4 +428,7 @@ If the user profile retrieval is successful, the response will include the user'
   "followings": 50
 }
 ```
-````
+
+```
+
+```
