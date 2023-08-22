@@ -2,7 +2,9 @@
 
 This API endpoint retrieves all posts created by an authenticated user, including associated comments and likes.
 
-## Endpoint GET /api/all_posts
+## Endpoint
+
+GET /api/all_posts
 
 ## Authentication
 
@@ -33,3 +35,33 @@ An array of objects, each representing a post created by the authenticated user.
   - `text` (string): The content of the comment.
   - `created_at` (string): The date and time when the comment was created.
 - `likes` (number): The number of likes on the post.
+
+# Authentication API
+
+This API endpoint allows users to authenticate by providing valid credentials and returns a JSON Web Token (JWT) if authentication is successful.
+
+## Endpoint
+
+POST /api/authenticate
+
+## Request
+
+### Headers
+
+None
+
+### Body
+
+The request body should contain the following fields:
+
+- `email` (string): The email address of the user.
+- `password` (string): The password associated with the user's account.
+
+#### Example Request Body
+
+```json
+{
+  "email": "user@example.com",
+  "password": "secretpassword"
+}
+```
