@@ -22,7 +22,7 @@ The request body should contain the following fields:
   "email": "newuser@example.com",
   "password": "securepassword"
 }
-
+```
 
 ## Response
 
@@ -96,7 +96,7 @@ The request body should contain the following fields:
   "email": "user@example.com",
   "password": "secretpassword"
 }
-````
+```
 
 # Add Comment to Post
 
@@ -429,3 +429,4 @@ If the user profile retrieval is successful, the response will include the user'
   "followings": 50
 }
 ```
+````
