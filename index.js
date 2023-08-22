@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const logger = require("./utils/logger");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
@@ -22,7 +23,7 @@ connectToDatabase;
 const environment = process.env.NODE_ENV || "development";
 const errorMiddleware = createErrorMiddleware(logger);
 dotenv.config({ path: `.env.${environment}` });
-
+app.use(cors());
 app.use(bodyParser.json());
 
 app.use("/", authenticate);
