@@ -26,8 +26,9 @@ The request body should contain the following fields:
 
 ## Response
 
-- **Status Code:** 200 (OK) - Successful request.
-- **Status Code:** 400 (Bad Request) - If the provided data is invalid.
+- **Status Code:** 201 (OK) - Successful request.
+- **Status Code:** 400 (Bad Request) - If the provided data is invalid or
+  user already exists.
 
 # Get All Posts
 
@@ -157,7 +158,7 @@ DELETE /api/posts/:id
   }
   ```
 
-# Follow User API
+# Follow User
 
 This API endpoint allows an authenticated user to follow another user.
 
