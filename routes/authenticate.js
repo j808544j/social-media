@@ -31,7 +31,8 @@ router.post("/api/authenticate", validateLogin, async (req, res) => {
       expiresIn: "1h",
     });
 
-    res.status(200).json({ token });
+    res.cookie("jwtToken", token, { httpOnly: true });
+    res.status(200).json({ message: "Login successful" });
   } catch (error) {
     logger.error("Error during login:", error);
     res.status(500).json({ message: "Login failed" });

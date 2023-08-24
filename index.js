@@ -4,6 +4,7 @@ const cors = require("cors");
 const logger = require("./utils/logger");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const createErrorMiddleware = require("./middleware/error");
 const authenticate = require("./routes/authenticate");
 const followUser = require("./routes/followUser");
@@ -18,13 +19,13 @@ const comment = require("./routes/comment");
 const postDetails = require("./routes/postDetails");
 const allPosts = require("./routes/allPosts");
 const connectToDatabase = require("./config/database");
-connectToDatabase;
 
 const environment = process.env.NODE_ENV || "development";
 const errorMiddleware = createErrorMiddleware(logger);
 dotenv.config({ path: `.env.${environment}` });
 app.use(cors());
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 app.use("/", authenticate);
 app.use("/", followUser);
