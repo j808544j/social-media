@@ -2,15 +2,23 @@ const jwt = require("jsonwebtoken");
 const logger = require("../utils/logger");
 
 const isAuthenticated = (req, res, next) => {
+  const authorizationHeader = req.headers.authorization;
+
+  if (!authorizationHeader || !authorizationHeader.startsWith("Bearer ")) {
+    return res
+      .status(401)
+      .json({ message: "Unauthorized: Bearer token not provided." });
+  }
+
+  const token = authorizationHeader.replace("Bearer ", "");
+
+  if (!token) {
+    return res
+      .status(401)
+      .json({ message: "Unauthorized: No token provided." });
+  }
+
   try {
-    const token = req.cookies.jwtToken;
-
-    if (!token) {
-      return res
-        .status(401)
-        .json({ message: "Unauthorized: No token provided." });
-    }
-
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;
     next();
