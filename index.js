@@ -21,9 +21,13 @@ const allPosts = require("./routes/allPosts");
 const connectToDatabase = require("./config/database");
 
 const environment = process.env.NODE_ENV || "development";
+const corsOptions = {
+  origin: "http://localhost:3000",
+  credentials: true,
+};
 const errorMiddleware = createErrorMiddleware(logger);
 dotenv.config({ path: `.env.${environment}` });
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
